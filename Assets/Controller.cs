@@ -12,8 +12,8 @@ public class Controller : MonoBehaviour
     {
         var dir = (target.position - plane.position).normalized;
         var dotProd = Vector3.Dot(plane.right, dir);
-        plane.Rotate(Vector3.up, dotProd * rotationSpeed * Time.deltaTime);
-        //plane.rotation *= Quaternion.AngleAxis(dotProd * rotationSpeed * Time.deltaTime, Vector3.up);
+        //plane.Rotate(Vector3.up, dotProd * rotationSpeed * Time.deltaTime);
+        plane.rotation *= Quaternion.AngleAxis(dotProd * rotationSpeed * Time.deltaTime, Vector3.up);
 
         plane.position += plane.forward * speed * (1 - dotProd) * Time.deltaTime;
     }
